@@ -4,9 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>intro a DOM</title>
+    <title>TODO LIST</title>
 </head>
 <body>
-    <script src="main.js"></script>
-</body>
+    <form id="todo-form">
+        <input type="text" id="todo"/>
+        <input type="submit" value="enviar"/>
+    </form>
+    <ul id="todo-list">
+    </ul>
+
+    <script>
+        const todoForm = document.getElementById('todo-form');
+        const todoList = document.getElementById('todo-list');
+        const todoInput = document.getElementById('todo');
+
+        todoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const todo = todoInput.value;
+            if(todo){
+                const todoItem = document.createElement('li');
+                todoItem.innerText = todo;
+                todoList.appendChild(todoItem);
+                todoInput.value = '';
+            }
+        });
+    </script>
+<body>
+
 </html>
